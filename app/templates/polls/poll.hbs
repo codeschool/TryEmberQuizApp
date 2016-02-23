@@ -1,0 +1,36 @@
+<header class="header">
+  <h2>Welcome, Woodland Wanderers!</h2>
+  <p>Now that you've completed your training, here's a quick quiz to test your skills.</p>
+</header>
+
+<main class="card card--light">
+  <h3 class="border">{{model.question}}</h3>
+  <div class="border">
+    <div class="grid group">
+
+      <div class="card-content grid-box grid-box--3of5">
+        <ul class="list list--answer">
+          {{#each model.options as |option|}}
+            <li class="list-item">
+              <button class="list-item-checkbox" {{action "voteForOption" model option}}>
+                <b class="srt">Select</b>
+              </button>
+              <span>{{option.value}}</span>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="grid-box grid-box--2of5">
+        <img src="assets/images/icon-flame.svg" alt="" class="icon" width="130">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid group actions">
+    <div class="grid-box grid-box--1of4">
+      {{#link-to "polls.results" model class="btn btn--secondary btn--results"}}Results{{/link-to}}
+    </div>
+  </div>
+</main>
+
